@@ -1286,7 +1286,32 @@
             </div>
         </div>
     </footer>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    
+    <script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        // Get form data
+        let formData = new FormData(this);
+    
+        // Send form data via Fetch API
+        fetch("https://formsubmit.co/rohitkathait.10@gmail.com", {
+            method: "POST",
+            body: formData
+        }).then(response => {
+            if (response.ok) {
+                alertify.success("Your message has been sent successfully!"); // Show success alert
+                document.getElementById("contact-form").reset(); // Reset form fields
+            } else {
+                alertify.error("Failed to send message. Try again."); // Show error alert
+            }
+        }).catch(error => {
+            alertify.error("Something went wrong. Please try again.");
+        });
+    });
+    </script>
 
     <!--<< All JS Plugins >>-->
     <script src="https://next.pixcelsthemes.com/assets/js/jquery-3.7.1.min.js"></script>

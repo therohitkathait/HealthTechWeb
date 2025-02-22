@@ -207,8 +207,8 @@
                         <div class="hero-button">
                             <a href="index.html" class="theme-btn hover-white wow fadeInUp" data-wow-delay=".4s">Get
                                 Started Now <i class="far fa-arrow-right"></i></a>
-                            <a href="service.html" class="btn-link wow fadeInUp"
-                                data-wow-delay=".6s">View Services <i class="far fa-arrow-right"></i></a>
+                            <a href="service.html" class="btn-link wow fadeInUp" data-wow-delay=".6s">View Services <i
+                                    class="far fa-arrow-right"></i></a>
                         </div>
                         <div class="hero-client d-flex align-items-center gap-4 mt-50 wow fadeInUp"
                             data-wow-delay=".8s">
@@ -224,7 +224,8 @@
                     <div class="hero-contact-box">
                         <h4>Get Consultations</h4>
                         <p>Ready to Register Our Landsio Services</p>
-                        <form action="https://formsubmit.co/rohitkathait.10@gmail.com" id="contact-form" method="POST" class="contact-form-item">
+                        <form action="https://formsubmit.co/rohitkathait.10@gmail.com" id="contact-form" method="POST"
+                            class="contact-form-item">
                             <input type="hidden" name="_next" value="https://therohitkathait.github.io/HealthTechWeb/">
                             <div class="row g-4">
                                 <div class="col-lg-12">
@@ -1286,31 +1287,21 @@
             </div>
         </div>
     </footer>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    
+
     <script>
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
-    
-        // Get form data
-        let formData = new FormData(this);
-    
-        // Send form data via Fetch API
-        fetch("https://formsubmit.co/rohitkathait.10@gmail.com", {
-            method: "POST",
-            body: formData
-        }).then(response => {
-            if (response.ok) {
-                alertify.success("Your message has been sent successfully!"); // Show success alert
-                document.getElementById("contact-form").reset(); // Reset form fields
-            } else {
-                alertify.error("Failed to send message. Try again."); // Show error alert
-            }
-        }).catch(error => {
-            alertify.error("Something went wrong. Please try again.");
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Stop form from submitting immediately
+
+            alertify.success("Your message has been sent successfully! Redirecting in 2 seconds...");
+
+            setTimeout(() => {
+                this.submit(); // Now submit the form after 2 seconds
+            }, 2000);
         });
-    });
     </script>
 
     <!--<< All JS Plugins >>-->
@@ -1336,5 +1327,5 @@
     <!--<< Main.js >>-->
     <script src="https://next.pixcelsthemes.com/assets/js/main.js"></script>
 </body>
- 
+
 </html>
